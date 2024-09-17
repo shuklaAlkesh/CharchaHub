@@ -29,7 +29,8 @@ export default function App() {
         const response = await apiClient.get(GET_USER_INFO,{
           withCredentials: true,
         });
-
+        // console.log(response);
+        
         if(response.status === 200 && response.data.id){
           setUserInfo(response.data);
         }else{

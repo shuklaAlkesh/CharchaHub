@@ -15,18 +15,26 @@ const databaseURL =  process.env.DATABASE_URL;
 const client = process.env.ORIGIN;
 
 
-// app.use(cors({
-//     // origin: client,
-//     origin: "*",
-//     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-//     credentials: true,
-// }));
+app.use(cors({
+    origin: client,
+    // origin: "*",
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials: true,
+}));
 
-app.use(cors({ origin: true }));
+// to remove the error in deployment
 app.use((req, res, next) => {
-    res.set("Access-Control-Allow-Origin", "*");
-    next();
+    res.header("Access-Control-Allow-Origin", client);
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
 });
+
+// app.use(cors({ origin: true }));
+// app.use((req, res, next) => {
+//     res.set("Access-Control-Allow-Origin", "*");
+//     next();
+// });
 
 // app.get('/', (req, res) => {
 //     res.send('Hello from the server!');
@@ -54,4 +62,3 @@ mongoose.connect(databaseURL).then(()=>
     console.log("Connected to database"))
 .catch(err =>console.log(err.message));
 
-// 1:09:21
