@@ -21,9 +21,9 @@ app.use(cors({
     credentials: true,
 }));
 
-app.get('/', (req, res) => {
-    res.send('Hello from the server!');
-})
+// app.get('/', (req, res) => {
+//     res.send('Hello from the server!');
+// })
 
 app.use("/uploads/profiles",express.static("uploads/profiles"));
 app.use("/uploads/files",express.static("uploads/files"));
