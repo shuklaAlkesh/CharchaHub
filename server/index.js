@@ -16,7 +16,8 @@ const client = process.env.ORIGIN;
 
 
 app.use(cors({
-    origin: client,
+    // origin: client,
+    origin: "*",
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
 }));
