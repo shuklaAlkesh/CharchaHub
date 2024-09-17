@@ -15,12 +15,18 @@ const databaseURL =  process.env.DATABASE_URL;
 const client = process.env.ORIGIN;
 
 
-app.use(cors({
-    // origin: client,
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    credentials: true,
-}));
+// app.use(cors({
+//     // origin: client,
+//     origin: "*",
+//     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+//     credentials: true,
+// }));
+
+app.use(cors({ origin: true }));
+app.use((req, res, next) => {
+    res.set("Access-Control-Allow-Origin", "*");
+    next();
+});
 
 // app.get('/', (req, res) => {
 //     res.send('Hello from the server!');
