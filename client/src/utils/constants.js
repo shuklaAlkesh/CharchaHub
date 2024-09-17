@@ -16,6 +16,15 @@ export const REMOVE_PROFILE_IMAGE_ROUTES = `${AUTH_ROUTES}/remove-profile-image`
 
 export const LOGOUT_ROUTES = `${AUTH_ROUTES}/logout`;
 
-export const CONTACTS_ROUTES = "api/contacts";
-
+export const CONTACTS_ROUTES = "/api/contacts";
 export const SEARCH_CONTACTS_ROUTES =`${CONTACTS_ROUTES}/search`;
+export const GET_DM_CONTACTS_ROUTES = `${CONTACTS_ROUTES}/get-contact-for-dm`;
+
+export const MESSAGES_ROUTES = "api/messages";
+export const GET_ALL_MESSAGES_ROUTES = `${MESSAGES_ROUTES}/get-messages`;
+export const UPLOAD_FILES_ROUTES = `${MESSAGES_ROUTES}/upload-file`;
+
+
+
+
+

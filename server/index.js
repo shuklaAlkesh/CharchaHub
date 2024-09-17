@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 import authRoutes from "./routes/AuthRoutes.js";
 import contactRoutes from "./routes/ContactRoutes.js"
 import setUpSocket from './socket.js';
+import messagesRoutes from './routes/MessagesRoutes.js';
 dotenv.config();
 
 const app = express();
@@ -21,15 +22,14 @@ app.use(cors({
 }));
 
 app.use("/uploads/profiles",express.static("uploads/profiles"));
+app.use("/uploads/files",express.static("uploads/files"));
 app.use(cookieParser());
 app.use(express.json());
 
-app.get("/", function(req, res){
-    res.send("Hello World");
-})
-
 app.use("/api/auth",authRoutes);
 app.use("/api/contacts",contactRoutes);
+app.use("/api/messages",messagesRoutes);
+
 
 const server = app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
