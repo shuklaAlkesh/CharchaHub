@@ -6,6 +6,8 @@ import Profile from "./pages/profile/index.jsx";
 import { useAppStore } from './store/index.js';
 import { apiClient } from './lib/api-client.js';
 import { GET_USER_INFO } from './utils/constants.js';
+import Loader from './components/Loader.jsx';
+
 
 const PrivateRoute = ({ children }) => {
   const { userInfo } = useAppStore();
@@ -51,7 +53,7 @@ export default function App() {
   },[userInfo,setUserInfo]);
 
   if (loading) {
-    return <div>Loading...</div>; 
+    return <Loader/>; 
   }
   return (
     <div>
